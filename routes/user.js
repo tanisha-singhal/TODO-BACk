@@ -20,6 +20,7 @@ router.post("/googleLogin", (req, res) => {
       CLIENT_ID,
     })
     .then((response) => {
+      console.log(response);
       const { email_verified, name, email } = response.payload;
       if (email_verified) {
         User.findOne({ email }).exec(async (err, user) => {
